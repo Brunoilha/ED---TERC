@@ -29,26 +29,21 @@ def lista_busca(lst,valor):
     return False
 
 def lista_retira(lst,valor):
-    novo_x = lista(valor)
-    novo_x.prox = lst
-    lst = lst.prox
-    return novo_x
-
-    aux = lst
+    if lst is None:
+        return None
+    
     if lst.info == valor:
-        aux = lst.prox
-        atual.prox = atual.prox.prox
-        aux = None
+        return lst.prox
 
-    aux = lst
+    x = lst
     atual = lst.prox
     while atual is not None:
         if atual.info == valor:
-            aux.prox = atual.prox
-            atual.prox = None
+            x.prox = atual.prox
             return lst
-        aux = atual
+        x = atual
         atual = atual.prox
+    return lst
 
 
 lst = lista_cria()
@@ -69,11 +64,5 @@ else:
     print("nao achei")
 
 retira = lista_retira(lst,20)
-
-if retira:
-    print("retirei {}".format((retira.info)))
-
-else:
-    print("nao encontrado")
-
-
+print("dps da remocao:")
+lista_imprime(lst)
