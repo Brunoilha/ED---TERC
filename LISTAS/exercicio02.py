@@ -34,7 +34,7 @@ def lista_separa(lst,valor):
     if lista_atual is None:
         return lst, None
         
-    lista_atual = lista_atual .prox
+    lista_atual = lista_atual.prox
     
     while lista_atual is not None:
         lista_2 = lista_insere(lista_2, lista_atual.info)
