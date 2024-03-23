@@ -33,7 +33,13 @@ def lista_busca(lst,valor):
 def lista_inverte(lst):
     atual = lst
     ant = None
-
+    while atual.info is not None:
+        prox = atual.prox
+        atual.prox = ant
+        ant = atual
+        atual = prox
+    return ant
+    
 lst = lista_cria()
 print(lista_vazia(lst))
 lst = lista_insere(lst,1)
@@ -42,10 +48,7 @@ lst = lista_insere(lst,5)
 lst = lista_insere(lst,7)
 lista_imprime(lst)
 lista_vazia(lst)
-
-
-
-
-
-
+print("\n lista invertida")
+lst = lista_inverte(lst)
+lista_imprime(lst)
 
